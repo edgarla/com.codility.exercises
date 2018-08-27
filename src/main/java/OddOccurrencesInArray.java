@@ -4,11 +4,11 @@ public class OddOccurrencesInArray {
 
     private static int solution(int[] A) {
         HashSet<Integer> oddOcurrences = new HashSet<>();
-        for(int i = 0; i < A.length; i++) {
-            if (oddOcurrences.contains(A[i])) {
-                oddOcurrences.remove(A[i]);
+        for(int i : A) {
+            if (oddOcurrences.contains(i)) {
+                oddOcurrences.remove(i);
             } else {
-                oddOcurrences.add(A[i]);
+                oddOcurrences.add(i);
             }
         }
         return oddOcurrences.iterator().next();
