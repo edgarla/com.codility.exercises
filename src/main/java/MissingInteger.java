@@ -1,7 +1,16 @@
+import java.util.Arrays;
+
 public class MissingInteger {
 
     private static int solution(int[] A) {
-        return 0;
+        int missingSmallestPositiveInteger = 1;
+        Arrays.sort(A);
+        for (int i : A) {
+            if (i == missingSmallestPositiveInteger) {
+                missingSmallestPositiveInteger++;
+            }
+        }
+        return missingSmallestPositiveInteger;
     }
 
     public static void main(String[] args) {
