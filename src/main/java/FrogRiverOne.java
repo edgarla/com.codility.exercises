@@ -24,5 +24,8 @@ public class FrogRiverOne {
     public static void main(String[] args) {
         int[] A1 = {1, 3, 1, 4, 2, 3, 5, 4};
         System.out.println(solution(5, A1));
+
+        int[] A2 = {1, 3, 1, 4, 2, 3, 5, 4};
+        System.out.println(solution(4, A2));
     }
 }
