@@ -10,6 +10,6 @@ public class CountDiv {
 
     public static void main(String[] args) {
         System.out.println(solution(6, 11, 2));
-        System.out.println(solution(6, 6, 2));
+        System.out.println(solution(4, 6, 1));
     }
 }
