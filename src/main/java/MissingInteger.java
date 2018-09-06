@@ -1,16 +1,29 @@
-import java.util.Arrays;
-
 public class MissingInteger {
 
     private static int solution(int[] A) {
-        int missingSmallestPositiveInteger = 1;
-        Arrays.sort(A);
+        int maxInteger = 0;
         for (int i : A) {
-            if (i == missingSmallestPositiveInteger) {
-                missingSmallestPositiveInteger++;
+            maxInteger = Math.max(maxInteger, i);
+        }
+
+        if (maxInteger <= 0) {
+            return 1;
+        }
+
+        boolean[] integers = new boolean[maxInteger];
+        for (int i : A) {
+            if (i > 0 && !integers[i - 1]){
+                integers[i - 1] = true;
             }
         }
-        return missingSmallestPositiveInteger;
+
+        for (int i = 0; i < integers.length; i++) {
+            if (!integers[i]) {
+                return i + 1;
+            }
+        }
+
+        return maxInteger + 1;
     }
 
     public static void main(String[] args) {
