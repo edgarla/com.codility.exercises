@@ -1,45 +1,17 @@
-import java.util.HashSet;
-
 public class PermCheck {
 
     private static int solution(int[] A) {
-        if (A.length == 1) {
-            if(A[0] > 1){
-                return 0;
-            }
-            return 1;
-        }
-
-        int accumulator = 0;
-        int accumulator2 = 0;
-        int min = A[0];
-        int max = A[0];
-        HashSet<Integer> checkRepeated = new HashSet<>();
-        int j = 1;
+        int N = A.length;
+        int[] countNumbers = new int[N + 1];
         for (int i : A) {
-            if(checkRepeated.contains(i)) {
+            if (i < 1 || i > N) {
                 return 0;
             }
-            if (min > i) {
-                min = i;
+            if (countNumbers[i] == 1){
+                return 0;
             }
-            if (max < i) {
-                max = i;
-            }
-            accumulator += i;
-            checkRepeated.add(i);
-            accumulator2 += j;
-            j++;
+            countNumbers[i]++;
         }
-
-        if (min != 1 || max - min == 0 || max - min > A.length) {
-            return 0;
-        }
-
-        if (accumulator != accumulator2) {
-            return 0;
-        }
-
         return 1;
     }
 
